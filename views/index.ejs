@@ -7,7 +7,21 @@
   </header>
   
   <main class="page-content">
-    </main>
+    <div class="messages">
+      <% if (messages && messages.length > 0) { %>
+        <%messages.forEach(message => { %>
+          <div class="message">
+            <h3>Username: <%= message.username %></h3>
+            <p>Message: <%= message.message %></p>
+            <p>Added: <%= message.formatted_date %></p>
+          </div>
+          <% }) %>
+        <% } else { %>
+        <p>No messages yet!</p>
+      <% } %>
+    </div>
+    <a href="/new" class="newMessageBtn">New Message</a>
+  </main>
 
 </body>
 </html>
