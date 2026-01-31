@@ -14,6 +14,7 @@
             <h3>Username: <%= message.username %></h3>
             <p>Message: <%= message.message %></p>
             <p>Added: <%= message.formatted_date %></p>
+            <a href="/<%= message.id %>" class="viewLink">View Details</a>
           </div>
           <% }) %>
         <% } else { %>

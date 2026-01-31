@@ -52,3 +52,26 @@ export async function  postNewMessage(req, res){
     res.status(500).send('Error creating message');
   }
 };
+
+export async function getMessageInfo(req, res) {
+  try {
+    const { messageID } = req.params;
+    
+    const result = await pool.query(
+      'SELECT * FROM user_messages WHERE id = $1',
+      [messageID]
+    );
+    
+    if (result.rows.length === 0) {
+      return res.status(404).send('Message not found');
+    }
+    
+    const message = result.rows[0];
+    message.formatted_date = formatDate(message.created_at);
+    
+    res.render('message', { message });
+  } catch (error) {
+    console.error('Error fetching message:', error);
+    res.status(500).send('Error loading message');
+  }
+}

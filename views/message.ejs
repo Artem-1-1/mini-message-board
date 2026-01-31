@@ -1,0 +1,16 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+<body>
+  <header class="header">
+    <h1>Message Details</h1>
+  </header>
+  <main class="page-content">
+    <div class="message one">
+      <h3>Username: <%= message.username %></h3>
+      <p>Message: <%= message.message %></p>
+      <p>Added: <%= message.formatted_date %></p>
+    </div>
+    <a href="/" class="backLink">Back to All Messages</a>
+  </main>
+</body>
+</html>
