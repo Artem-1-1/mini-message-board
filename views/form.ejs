@@ -1,0 +1,32 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>  
+
+<body>
+  <header class="header">
+    <h1>New message</h1>
+  </header>
+  
+  <main class="page-content">
+    <form method="POST" action="/new">
+    <div class="input-container">
+      <label for="username">Username:</label>
+      <input 
+      type="text"
+      name="username"
+      id="username"
+      placeholder="Enter your Username"
+      required>
+    </div>
+    <div class="input-container">
+      <label for="message">Message:</label>
+      <textarea
+        name="message"
+        id="message"
+        rows="5"
+        placeholder="Enter your message"
+        required></textarea>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
